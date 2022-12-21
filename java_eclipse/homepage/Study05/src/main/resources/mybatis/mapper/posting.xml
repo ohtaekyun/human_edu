@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+				 "http://mybatis.org/dtd//mybatis-3-mapper.dtd">
+
+<mapper namespace="com.human.springboot.postDAO">
+<insert id="insertPosting">
+	insert into posting values(seq_post_id.nextval,#{param1},#{param2},#{param3},
+		to_char(sysdate, 'YYYYMMDDHHMISS'),to_char(sysdate, 'YYYYMMDDHHMISS'))
+</insert>
+<select id="listPosting" resultType="com.human.springboot.PostingDTO">
+	select post_id, title, writer, 
+		substr(created,1,4)||'년 '||substr(created,5,2)||'월 '||substr(created,7,2)||'일 '||substr(created,9,2)||'시 '||substr(created,11,2)||'분 '||substr(created,13,2)||'초' created, 
+		substr(updated,1,4)||'년 '||substr(updated,5,2)||'월 '||substr(updated,7,2)||'일 '||substr(updated,9,2)||'시 '||substr(updated,11,2)||'분 '||substr(updated,13,2)||'초' updated 
+	from posting
+	order by post_id
+</select>
+<select id="getPost" resultType="com.human.springboot.PostingDTO">
+	select post_id, title, content, writer, 
+		substr(created,1,4)||'년 '||substr(created,5,2)||'월 '||substr(created,7,2)||'일 '||substr(created,9,2)||'시 '||substr(created,11,2)||'분 '||substr(created,13,2)||'초' created, 
+		substr(updated,1,4)||'년 '||substr(updated,5,2)||'월 '||substr(updated,7,2)||'일 '||substr(updated,9,2)||'시 '||substr(updated,11,2)||'분 '||substr(updated,13,2)||'초' updated 
+	from posting
+	where post_id=#{param1}
+</select>
+<delete id="deletePosting">
+	delete from posting where post_id=#{param1}
+</delete>
+<select id="updatePosting" resultType="com.human.springboot.PostingDTO">
+	select post_id, title, content, writer, 
+		substr(created,1,4)||'년 '||substr(created,5,2)||'월 '||substr(created,7,2)||'일 '||substr(created,9,2)||'시 '||substr(created,11,2)||'분 '||substr(created,13,2)||'초' created, 
+		substr(updated,1,4)||'년 '||substr(updated,5,2)||'월 '||substr(updated,7,2)||'일 '||substr(updated,9,2)||'시 '||substr(updated,11,2)||'분 '||substr(updated,13,2)||'초' updated 
+	from posting
+	where post_id=#{param1}
+</select>
+<update id="modifyPosting">
+	update posting
+	   set title=#{param2}, content=#{param3}, updated=to_char(sysdate, 'YYYYMMDDHHMISS')
+	 where post_id=#{param1}
+</update>
+</mapper>

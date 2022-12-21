@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    label{background-color: gray; color: white; width: 500px;}
+</style>
+<body>
+    <select id="selCountry" size="10">
+        <option value="KR">Korea, Republic of</option>
+        <option value="US">USA</option>
+        <option value="SG">Singapore</option>
+        <option value="GE">Germany</option>
+        <option value="UK">United Kingdom</option>
+    </select><br><br>
+    <textarea id="txtPost" rows="5" cols="30"></textarea><br><br>
+    <button id="btnGo">Get Data</button><br><br>
+    <label id="first"></label><br><br>
+    <label id="second"></label><br><br>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+    $(document)
+    .ready()
+    .on('click','#btnGo',function(){
+        // let a=$('#selCountry').val();
+        // a=a+", "+$('#selCountry option:selected').text();
+        // $('#first').text(a);
+        // let b=$('#txtPost').val();
+        // $('#second').text(b);
+        // $('#selCountry').append('<option value="FL">Finland</option>');
+        $('#txtPost').val('hello world\ngoodmorning\n')
+    })
+</script>
+</html>

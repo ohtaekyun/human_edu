@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label id="lbl1"></label><br><br>
+    <button id="btnSort1">오름차순</button><br><br>
+    <button id="btnSort2">내림차순</button><br><br>
+    <button id="btnSort3">셔플</button><br><br>
+    <label id="lbl2"></label>
+    
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+    let ar = [12,7,3,1,9,10,5];
+
+    
+    
+    $(document)
+    .ready(function(){
+        display('#lbl1')
+    })
+    .on('click','#btnSort1',function(){
+        for(i=0;i<ar.length;i++){
+            for(j=i+1;j<ar.length;j++){
+                if(ar[i]>ar[j]){
+                    // let tmp=ar[i]
+                    // ar[i]=ar[j]
+                    // ar[j]=tmp
+                    [ar[i], ar[j]]=[ar[j], ar[i]]
+                }
+            }
+        }
+        display('#lbl2')
+    })
+
+
+    .on('click','#btnSort2',function(){
+        for(i=0;i<ar.length;i++){
+            for(j=i+1;j<ar.length;j++){
+                if(ar[i]<ar[j]){
+                    // let tmp=ar[i]
+                    // ar[i]=ar[j]
+                    // ar[j]=tmp
+                    [ar[i], ar[j]]=[ar[j], ar[i]]
+                }
+            }
+        }
+        display('#lbl2')
+    })
+
+    .on('click','#btnSort3',function(){
+        shuffleArray(ar)
+        display('#lbl1')
+        $('#lbl2').delete();
+        
+    })
+
+
+
+
+
+    function display(selector){
+        let str='';
+        for(i=0;i<ar.length;i++){
+            str+=' '+ar[i]
+        }
+        $(selector).text(str)
+
+    }
+
+
+
+
+    function shuffleArray(array){
+        array.sort(()=>Math.random()-0.5)
+    }
+
+</script>
+</html>

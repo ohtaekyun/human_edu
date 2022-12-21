@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>호텔관리</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+</head>
+<style>
+    #dvHotel {
+        width: 1200px; height: 700px; margin:auto;
+    }
+    #hotel0 {
+        width: 1155px; height: 620px; background-color: rgb(207, 184, 184); 
+    }
+    #hotel1 {
+        width: 1155px; height: 620px; background-color: rgb(229, 229, 153); 
+    }
+    #hotel2 {
+        width: 1155px; height: 620px; background-color: rgb(199, 209, 238); 
+    }
+</style>
+<body>
+    <h1 align="center">호텔관리 시스템</h1>
+    <div id = "dvHotel">
+        <ul>
+            <li><a href="#hotel0">객실종류관리</a></li>
+            <li><a href='#hotel1'>객실관리</a></li>
+            <li><a href='#hotel2'>예약관리</a></li>
+        </ul>
+        <div id="hotel0" align="center">
+            <table>
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>객실종류</td>
+                            </tr>
+                            <tr>
+                                <td><select id="roomType1"  style="width: 200px; height: 250px;" size="15">
+                                </select></td>
+                            </tr>
+                        
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>객실종류번호</td>
+                                <td><input type="text" id="roomTypeNum1"></td>
+                            </tr>
+                            <tr>
+                                <td>객실종류명</td>
+                                <td><input type="text" id="roomTypeName1"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><button id="btnAdd1">등록</button>&nbsp;<button id="btnDel1">삭제</button></td>
+
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+        <div id="hotel1" align="center">
+            <table>
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>객실목록</td>
+                            </tr>
+                            <tr>
+                                <td><select id="roomList2" style="width: 300px; height: 400px;" size="15">
+                                </select></td>
+                            </tr>
+                        
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>객실번호</td>
+                                <td><input type="text" id="roomNum2"></td>
+                            </tr>
+                            <tr>
+                                <td>객실종류명</td>
+                                <td><select style="width: 200px;" id="roomTypeName2"></select></td>
+                            </tr>
+                            <tr>
+                                <td>객실명</td>
+                                <td><input type="text" id="roomName2"></td>
+                            </tr>
+                            <tr>
+                                <td>숙박가능인원</td>
+                                <td><input type="text" size="5" id="howMany2">명</td>
+                            </tr>
+                            <tr>
+                                <td>1박 요금</td>
+                                <td><input type="text" size="10" id="howMuch2">원</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><button id="btnAdd2">등록</button>&nbsp;<button id="btnDel2">삭제</button></td>
+
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+        <div id="hotel2">
+            <table align="center">
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>숙박기간</td>
+                                <td><input type="date" id="start3"> ~ <input type="date" id="end3"></td>
+                            </tr>
+                            <tr>
+                                <td>숙박인원</td>
+                                <td><input type="text" size="5" id="person3"> 명 <button id="btnSearch3">찾기</button></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><select id="roomList3" style="width: 240px; height: 300px;" size="15">
+                                <option>객실목록</option></select>
+                                </select></td>
+                            </tr>
+                        
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>객실번호</td>
+                                <td><input type="text" id="roomNum3" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>객실종류</td>
+                                <td><input type="text" id="roomType3" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>객실명</td>
+                                <td><input type="text" id="roomName3" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>숙박예정인원</td>
+                                <td><input type="text" size="5" id="howMany3">명</td>
+                            </tr>
+                            <tr>
+                                <td>숙박기간</td>
+                                <td><input type="date" size="5" id="start_dt3"> ~ <input type="date" size="5" id="end_dt3"></td>
+                            </tr>
+                            <tr>
+                                <td>총비용</td>
+                                <td><input type="text" id="howMuch3"></td>
+                            </tr>
+                            <tr>
+                                <td>예약자명</td>
+                                <td><input type="text" id="reserveName3"></td>
+                            </tr>
+                            <tr>
+                                <td>모바일번호</td>
+                                <td><input type="text" id="mobile3"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><button id="btnAdd2">예약등록</button>&nbsp;<button id="btnDel2">비우기</button>&nbsp;<button id="btnDel2">예약취소</button></td>
+
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td><select style="width: 240px; height: 300px;" size="15">
+                                <option>예약객실목록</option></select></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</body>
+<script>
+    arRoom=[]
+    roomType0={}
+    $(document)
+    .ready(function(){
+        $('#dvHotel').tabs();
+    })
+    .on('click','#btnAdd1',function(){
+        let str1=$('#roomTypeNum1').val()
+        let str2=$('#roomTypeName1').val()
+        let str3="<option value='"+str1+"'>"+str2+"</option>"
+        found=false
+        if(str1==''||str2==''){
+            alert("바보")
+        }
+        else{
+            $('#roomType1 option').each(function(){
+                if($(this).val()==str1){
+                    found = true
+                    return false
+                }
+            })
+            if(found){
+                    alert("수정됨")
+                roomType0[str1]=str2
+                // $('#roomType1 option[val=str1]').prop('selected',true)
+                $('#roomType1 option[value='+str1+']').text(str2)
+                $('#roomTypeName2 option[value='+str1+']').text(str2)
+                    
+            }
+            else{
+                roomType0[str1]=str2
+                $('#roomType1').append(str3)
+                $('#roomTypeName2').append(str3)        
+                $('#roomTypeNum1').val('')
+                $('#roomTypeName1').val('')
+            }
+        }
+    })
+    .on('click','#btnDel1',function(){
+        let str1=$('#roomTypeNum1').val()
+        let str2=$('#roomTypeName1').val()
+        $('#roomType1 option:selected').remove()
+        $('#roomTypeName2 option[value='+str1+']').remove()
+        $('#roomTypeNum1').val('')
+        $('#roomTypeName1').val('')
+    })
+    .on('click','#roomType1',function(){
+        let x1 = $('#roomType1 option:selected').val()
+        $('#roomTypeNum1').val(x1)
+        $('#roomTypeName1').val(roomType0[x1])
+    })
+
+    .on('click','#roomTypeName2', function(){
+        // let a = $('#roomTypeName2 option:selected').val();
+        for(var key in roomType0){
+            str = '<option value='+ key +'>' + roomType0[key]+'</option>';
+	        // $('#roomList2').append(str);
+            // $('#roomTypeNum2').val(key)
+            x=roomType0[key];
+        }
+    })
+    .on('click','#btnAdd2',function(){
+        a = $('#roomNum2').val()
+        b = $('#roomTypeName2 option:selected').text()
+        c = $('#roomName2').val()
+        d = $('#howMany2').val()
+        e = $('#howMuch2').val()
+        $('#roomList2').append("<option value='"+a+"'>"+c+" "+b+" "+d+"명 "+e+"원</option>")
+        roominfo={};
+        roominfo['num']=
+        roominfo['name']='..'
+        roominfo['type']='..'
+        roominfo['howmany']='...'
+        arRoom.push(roominfo);
+
+        $('#roomNum2').val('')
+        $('#roomName2').val('')
+        $('#howMany2').val('')
+        $('#howMuch2').val('')
+    })
+    .on('click','#btnDel2',function(){
+        // a = $('#roomList2 option:selected').val()
+        $('#roomList2 option:selected').remove()
+    })
+    .on('click','#btnSearch3',function(){
+        a=$('#person3').val()
+        b=$('#start3').val()
+        c=$('#end3').val()
+        $('#howMany3').val(a)
+        $('#start_dt3').val(b)
+        $('#end_dt3').val(c)
+
+        for(i=0; i<arRoom.length; i++){
+            if(parseInt(arRoom[i]['howmany'])>=parseInt(a)){
+                $('#roomList3').append("<option value></option>")
+            }
+        }
+    })
+    
+</script>
+</html>

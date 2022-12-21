@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    td{width: 50px; height: 50px; text-align: center;}
+    .bgRed{background-color: red;}
+    .bgBlue{background-color: blue;}
+    .return{background-color: white;}
+    
+</style>
+<body>
+    <button id="btnDraw">테이블 그리기</button>
+    <label id="lblIndex"></label>
+    
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+    
+    $(document)
+            .on("click","td",function(){
+                let n = $(this).parent().index();
+                let m = $(this).index();
+                $('#lblIndex').text(n+", "+m);
+
+
+
+                if($(this).hasClass('bgRed')){
+                    $(this).removeClass('bgRed')
+                    $(this).addClass('bgBlue')
+                }
+                else {
+                    $(this).removeClass('bgBlue')
+                    $(this).addClass('bgRed')
+                }
+                
+                return false
+            })
+    
+            .on("click","#btnDraw",function(){
+                let str=prompt('숫자를 입력해')
+                if(isNaN(str)){
+                    alert('숫자를 입력하시오')
+                    return false
+                }
+                let N = parseInt(str)
+
+                $('#btnDraw').before('<table border=1></table>')
+                for(i=0;i<N;i++){
+                    $('table').append('<tr></tr>')
+
+                }
+                for(i=0;i<N;i++){
+                    for(j=0;j<N;j++){
+                        $('table tr:eq('+i+')').append('<td></td>')
+                    }
+                    
+                }
+
+            })
+
+
+
+</script>
+</html>

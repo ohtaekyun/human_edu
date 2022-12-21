@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    td{width: 50px; height: 50px;}
+</style>
+<body>
+    <table border="1">
+        <tr>
+            <td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td>
+        </tr>
+        </table>
+        <br><br>
+        <button id="button">버튼</button>
+    
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script>
+            $(document)
+            .on("click","button",function(){
+                for(let i=0;i<=3;i++)
+                    for(let j=0;j<=3;j++)
+                    $('table tr:eq('+i+') td:eq('+j+')').text(4*i+j+1);
+
+
+                
+            })
+        </script>
+</body>
+// 1~16까지 채우는 코드 for문 이용
+let i=0, j=0;
+$('table tr:eq('+i+') td:eq('+j+')').text(i*j+1);
+</html>

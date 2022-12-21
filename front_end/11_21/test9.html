@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+    <tr><td>이름</td><td><input type=text id=name></td></tr>    
+    <tr><td>아이디(userid)</td><td><input type=password id=passcode></td></tr>
+    <tr><td>성별</td><td><input type=radio name=gender value=male>남성
+                     <input type=radio name=gender value=female>여성</td></tr>
+    <tr><td>거주지역</td><td><select id=selRegion size="10">
+                                <option value="서울">서울</option>
+                                <option value="경기도">경기도</option>
+                                <option value="강원도">강원도</option>
+                                <option value="충청북도">충청북도</option>
+                                <option value="충청남도">충청남도</option>
+                                <option value="경상북도">경상북도</option>
+                                <option value="경상남도">경상남도</option>
+                                <option value="전라북도">전라북도</option>
+                                <option value="전라남도">전라남도</option>
+                                <option value="제주도">제주도</option>
+    </select></td></tr> 
+    <tr><td>관심분야</td><td>
+        <input type="checkbox" id="interest" name="경제">경제
+        <input type="checkbox" id="interest" name="정치">정치
+        <input type="checkbox" id="interest" name="사회">사회<br>
+        <input type="checkbox" id="interest" name="외교">외교
+        <input type="checkbox" id="interest" name="문화">문화
+        <input type="checkbox" id="interest" name="연예">연예<br>
+        <input type="checkbox" id="interest" name="스포츠">스포츠
+        <input type="checkbox" id="interest" name="우주">우주
+        <input type="checkbox" id="interest" name="기술">기술<br>
+    </td></tr>
+    <tr><td colspan="2"><button id=btnGet>데이터모으기</button></td></tr>
+    <tr><td colspan=2>
+        <textarea id="txtData" rows="10" cols="50"></textarea>
+    </td></tr>
+    </table>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+    
+    $(document)
+    .ready()
+    .on('click','#btnGet',function(){
+        let a='이름: '+$('#name').val();
+        let b='아이디: '+$('#passcode').val();
+        let c='성별: '+$('input[name=gender]:checked').val();
+        let d='거주지역: '+$('#selRegion').val();
+        // let e='관심분야: '+$('input[id="interest"]:checked').attr('checked',true);
+        // let e='관심분야: '+$('input[id="interest"]:checked').val();
+        let e ='관심분야: ';
+        $('input[type=checkbox]:checked').each(function(){
+            e=e+$(this).attr('name')+' '
+
+        })
+
+
+        // let str= $('input[id=interest]:checked').val();
+        
+        // $('#interest').each(function(){
+        // d= '관심분야: '+$(this).attr('input[id=interest]:checked');
+        // d= '관심분야: '+$('#interest[name=walking]',).attr('checked',true);
+        // })
+        
+        
+
+        $('#txtData').text(a+'\n'+b+'\n'+c+'\n'+d+'\n'+e)       
+               
+        
+    })
+
+
+</script>
+
+
+
+</html>

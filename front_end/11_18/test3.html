@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txtNumber"><br><br>
+    <button id="btnStart">시작</button>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script> 
+    <script>
+        $(document).on('click','#btnStart',function(){
+            let i=1;
+            g=setInterval(function(){
+                $('#txtNumber').val(i);
+                i++
+                if(i>10) clearInterval(g);
+
+            },500)
+        })
+    </script>
+</body>
+</html>

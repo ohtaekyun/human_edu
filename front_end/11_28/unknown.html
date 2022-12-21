@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(document)
+         .on('click','#set1',function() {
+        flag = false;
+        for(i=0; i<arRoom.length; i++) {
+            roomInfo=arRoom[i];
+            if(roomInfo['num']==$('#RoomNum').val()) {
+                arRoom[i]['Rname']=$('#RoomName1').val();
+                arRoom[i]['Rname2']=$('#RoomName2').val();
+                arRoom[i]['Member']=parseInt($('#RoomMem').val());
+                arRoom[i]['Pay']=parseInt($('#RoomPay').val());
+                break;
+            }
+        }
+        //두가지의 경우 : 1.[true]:update 완료 후 break; 2.[false]:같은 객실번호가 없어서 추가해야 하는 경우.
+        if(flag==false) {
+        roomInfo={};
+        roomInfo['num']=$('#RoomNum1').val();
+        roomInfo['Rname']=$('#RoomName1').val();
+        roomInfo['Rname2']=$('#RoomName2').val();
+        roomInfo['Member']=parseInt($('#RoomMem').val());
+        roomInfo['Pay']=parseInt($('#RoomPay').val());
+        arRoom.push(roomInfo);
+    }
+    })
+    .on('click','#find',function() {
+        $('#RoomList').empty();
+        n=parseInt($('#RoomM').val());
+        for(i=0; i<arRoom.length; i++) {
+            roomInfo = arRoom[i];
+            if(roomInfo['Member']>=n) {
+                let str = '<option value ='+roomInfo['num']+'>'+roomInfo['Rname2']+', '+roomInfo['Rname']+
+                    ', x'+roomInfo['Member']+', '+roomInfo['Pay']+'></option>';
+                    $('#RoomList').append(str);
+            
+            }
+        }
+    })
+    </script>
+</body>
+</html>

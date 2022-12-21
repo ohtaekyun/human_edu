@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+       
+<table>
+<tr>
+    <td>
+        <table border=1 id="tblData">
+        <thead>
+            <tr><th>이름</th><th>모바일</th><th>지역</th></tr>
+        </thead>
+
+
+        </table><br><br>
+    
+    </td>
+    <td>
+        <table>
+        <tr><td>이름:<input type=text id=name></td></tr>
+        <tr><td>모바일:<input type=text id=mobile></td></tr>
+        <tr><td>지역:<input type=text id=region></td></tr>
+        <tr><td><button id=btnNew>앞에 추가</button><button id=btnNew1>뒤에 추가</button>
+        </td></tr>
+        </table>
+    </td>
+</tr>
+</table>
+    </table><br><br>
+   
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    
+    <script>
+
+    $(document)
+    .on("click","#btnNew",function(){
+       let str = "<tr><td>"+$("#name").val()+"</td><td>"+$("#mobile").val()+"</td><td>"+$("#region").val();
+
+        
+         $("#tblData").prepend(str);
+        
+      
+    })
+
+    .on("click","#btnNew1",function(){
+       let str1 = "<tr><td>"+$("#name").val()+"</td><td>"+$("#mobile").val()+"</td><td>"+$("#region").val();"</td>"
+
+        
+         $("#tblData").append(str1);
+        
+      
+    })
+   
+   
+    </script>
+
+</body>
+</html>

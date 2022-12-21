@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" width="850" height="400">
+        <tr>
+            <td style="vertical-align: top;" align="center">
+                <table>
+                    <tr>
+                        <td colspan="2" style="text-align: center">메뉴목록</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><select id=menuSel size="12" style="width: 250px; height: 200px; text-align-last:justify;" >
+                            <option name="Americano" value="2500">Americano 2500</option>
+                            <option name="Mocca" value="5000">Mocca 5000</option>
+                            <option name="Espresso" value="2000">Espresso 2000</option>
+                            <option name="Cappuccino" value="3500">Cappuccino 3500</option>
+                            <option name="Latte" value="4000">Latte 4000</option>
+                        </select></td>
+                        
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">메뉴명:</td>
+                        <td><input id="menuName" type="text" size="15" readonly></td>
+                    <tr>
+                        <td style="text-align: right">수량:</td>
+                        <td><input id="menuQty" type="number" min="1" max="10"> 잔</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">가격:</td>
+                        <td><input id="menuPrice" type="text" size="10" readonly> 원</td><br>
+                    </tr>
+                    </tr>
+                    <tr><td></td>
+                        <td>
+                            <button id="btnAdd">추가</button>
+                            <button id="btnDel">지우기</button>
+                        </td>
+                    </tr>
+                    
+                </table>
+            </td>
+            <td style="vertical-align: top;" align="center">
+                <table>
+                    <tr>
+                        <td colspan="2" style="text-align: center">주문내역</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center"><select id="menuList" size="12" style="width: 250px; height: 200px; text-align-last:unset;" ></select></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">총액:</td>
+                        <td><input type="text" size="10" id="sumPrice" readonly> 원</td>
+                    <tr>
+                        <td style="text-align: right">모바일번호:</td>
+                        <td><input type="text" id="mobileNum"></td>
+                    </tr>
+                    <tr><br>
+                    </tr>
+                    </tr>
+                    <tr><td></td>
+                        <td>
+                            <button id="btnDelOrder">주문삭제</button>
+                            <button id="btnComOrder">주문완료</button>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="vertical-align: top;" align="center">
+                <table>
+                    <tr>
+                        <td colspan="2" style="text-align: center">매출내역</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;"><select size="12" style="width: 250px; height: 200px;" id="selSales"></select></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">매출총액:</td>
+                        <td><input type="text" size="10" id="totalSales" readonly> 원</td>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td><br>
+                    </tr>
+                    </tr>
+                    <tr><td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+    // $(document)
+    // .on('click','#btnAdd',function(){
+        // $("#menuSel option:selected").text('#menuName')
+        
+
+
+
+    $(document)
+    .on('click','#menuSel', function(){
+        let str = $('#menuSel option:selected').text();
+        var words = str.split(' ')
+        
+        $("#menuName").val(words[0]);
+        $("#menuQty").val(1);
+        var cnt1 = $('#menuQty').val()
+        $("#menuPrice").val(cnt1*words[1]);
+    })
+    .on('change','#menuQty',function(){
+        let str = $('#menuSel option:selected').text();
+        var words = str.split(' ')
+        var cnt1 = $('#menuQty').val()
+        $("#menuPrice").val(cnt1*words[1]);
+    })
+    .on('click','#btnAdd',function(){
+        let a = $("#menuName").val()
+        let b = $("#menuQty").val()
+        let c = $("#menuPrice").val()
+        $('#menuList').append("<option>"+a+" "+b+"잔 "+c+"</option>")
+        $("#menuName").val(null)
+        $("#menuQty").val(null)
+        $("#menuPrice").val(null)
+    })
+    .on('click','#btnAdd',function(){
+        let sum=0
+        $('#menuList option').each(function(){
+            let str = $(this).text()
+            var words1 = str.split(' ')
+            sum = sum + parseInt(words1[2])
+            $("#sumPrice").val(sum);
+        })
+    })
+    .on('click','#btnDelOrder',function(){
+        let sum=0
+        $("#sumPrice").val(null);
+        $('#menuList option:selected').remove()
+        $('#menuList option').each(function(){
+            let str = $(this).text()
+            var words1 = str.split(' ')
+            sum = sum + parseInt(words1[2])
+            $("#sumPrice").val(sum);
+        })
+        // if('#menuList option'==null){
+        //     $("#sumPrice").val(sum);
+        // }
+    })
+    .on('click','#btnComOrder',function(){
+        let sum0=0;
+        $('#menuList option').each(function(){
+            let str = $(this).text()
+            let val = $("#mobileNum").val()
+            if(val==''){
+            $("#selSales").append("<option>"+"번호없음"+" "+str+"</option>");
+            }
+            else{
+            $("#selSales").append("<option>"+val+" "+str+"</option>");
+            }
+        })
+        $('#selSales option').each(function(){
+                let str0 = $(this).text()
+                var words0 = str0.split(' ')
+                sum0 = sum0+parseInt(words0[3])
+                $("#totalSales").val(sum0)
+        })
+        $('#menuList option').remove()
+        $("#sumPrice").val(null);
+        $("#mobileNum").val(null)
+
+    })
+        
+        
+        
+
+</script>
+</html>

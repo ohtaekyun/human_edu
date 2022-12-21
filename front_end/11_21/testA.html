@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name"><br>
+    <input type="hidden" id="nick"><br>
+    <input type="password" id="passcode"><br>
+    <input type="checkbox" id="capable">Capable<br>
+    <input type="radio" id="gender" value="male"><br><br>
+    <button id="btnGo">Do</button>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+    $(document)
+    .on('click','#btnGo',function(){
+        $('input').each(function(){
+            console.log($(this).index()+"="+$(this).attr('id'))
+        })
+    })
+</script>
+</html>

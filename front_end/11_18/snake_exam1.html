@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    td{width: 50px; height: 50px; text-align: center;}
+</style>
+<body>
+    <table border="1">
+        <tr>
+            <td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td>
+        </tr>
+        </table>
+        <br><br>
+        <button id="button">버튼</button>
+    
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script>
+            $(document)
+            .on("click","button",function(){
+                let a=1;
+                for(let i=0;i<$('table tr').length;i++)
+                    
+                    if(i%2==0){
+                        for(let j=0; j<$('table tr:eq(0) td').length; j++){
+                            $('table tr:eq('+i+') td:eq('+j+')').text(a++);
+                        }
+                        
+                    }
+                    else{   
+                        for(let j=3; j>=0; j--){
+                            $('table tr:eq('+i+') td:eq('+j+')').text(a++);
+                        }
+                    }
+             })
+        </script>
+</body>
+</html>

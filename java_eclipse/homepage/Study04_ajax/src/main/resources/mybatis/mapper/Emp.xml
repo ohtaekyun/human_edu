@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+				 "http://mybatis.org/dtd//mybatis-3-mapper.dtd">
+
+<mapper namespace="com.human.springboot.empDAO">
+<select id="list" resultType="com.human.springboot.EmpDTO">
+	SELECT a.employee_id, a.emp_name, a.salary, b.emp_name manager_name
+	FROM employees a, employees b
+	where a.manager_id=b.employee_id(+)
+	ORDER BY emp_name
+</select>
+<select id="listDepartment" resultType="com.human.springboot.DepartmentDTO">
+	select a.department_id,a.department_name, b.department_name parent_name, c.emp_name 
+ 	  from departments a, departments b, employees c
+	 where a.parent_id=b.department_id(+)
+  	   and a.manager_id=c.employee_id(+)
+  order by a.department_id
+</select>
+
+
+
+<select id="listRoomType" resultType="com.human.springboot.RoomtypeDTO">
+	select typenum, typename from roomtype
+	order by typenum
+</select>
+<insert id="insertRoomType">
+	insert into roomtype values(seq_roomtype.nextval,#{param1},null)
+</insert>
+<delete id="deleteRoomType">
+	delete from roomtype where typenum=#{param1}
+</delete>
+<update id="updateRoomType">
+	update roomtype set typename=#{param1} where typenum=#{param2}
+</update>
+
+
+<select id="listRoom" resultType="com.human.springboot.RoomDTO">
+	select num, name, type, howmany, howmuch from roominfo
+	order by num
+</select>
+<insert id="insertRoomInfo">
+	insert into roominfo values(seq_roominfo.nextval,#{param1},#{param2},#{param3},#{param4})
+</insert>
+<delete id="deleteRoomInfo">
+	delete from roominfo where num=#{param1}
+</delete>
+<update id="updateRoomInfo">
+	update roominfo 
+	set name=#{param2}, type=#{param3}, howmany=#{param4}, howmuch=#{param5} 
+	where num=#{param1}
+</update>
+
+<select id="getMemberCount" resultType="int">
+	select count(*) from member where loginid=#{param1} and passcode=#{param2}
+</select>
+
+</mapper>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    <table border=2 id="tblData">
+        <tr><td>이름</td><td>모바일</td><td>지역</td></tr>
+        <tbody>
+            
+        </tbody>
+    </table><br><br>
+
+<table>
+<tr>
+    <td>
+        <table border="1" id="tblData">
+
+        </table><br><br>
+    </td>
+    <td>
+    <table>
+        <tr><td>이름: <input type="text" id="name"></td></tr>
+        <tr><td>모바일: <input type="text" id="mobile"></td></tr>
+        <tr><td>지역: <input type="text" id="location"></td></tr>
+        <tr><td><button id="btnPrepend">앞에 추가</button></td></tr>
+        <tr><td><button id="btnAppend">뒤에 추가</button></td></tr>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script> 
+    <script>
+        $(document)
+        .on('click','#btnAppend',function(){
+            let str1 ='<tr><td>'+$('#name').val()+'</td><td>'
+                +$('#mobile').val()+'</td><td>'
+                +$('#location').val();
+            $('#tblData').append(str1)
+        })
+        .on('click','#btnPrepend',function(){
+            let str2 ='<tr><td>'+$('#name').val()+'</td><td>'
+                +$('#mobile').val()+'</td><td>'
+                +$('#location').val();
+            $('#tblData').prepend(str2)
+        })
+
+
+    </script>
+    </table>
+    </td>
+</tr>
+</table>
+
+
+
+
+
+
+
+
+
+    
+    
+</body>
+</html>
