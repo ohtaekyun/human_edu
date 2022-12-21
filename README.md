@@ -21,7 +21,7 @@
 
 - Oracle
     - 2022.11.29 ~ 2022.12.16
-    - 사용 툴: <img src="https://img.shields.io/badge/Oracle-F80000?style=flat-badge&logo=oracle&logoColor=white">
+    - 사용 툴: <img src="https://img.shields.io/badge/Oracle-F80000?style=flat-badge&logo=oracle&logoColor=white">, <img src="https://img.shields.io/badge/Eclipse-2C2255?style=flat-badge&logo=Eclipse&logoColor=white">
     - MVC 구조 학습
     - DB와의 연동 및 데이터 CRUD 실습
     - AJAX를 이용하여 회원가입/로그인과 연동 된 게시판 만들기 실습
