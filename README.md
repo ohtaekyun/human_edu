@@ -28,5 +28,5 @@
 
 - R
     - 2022.12.19 ~
-    - 사용 툴: <img src="https://img.shields.io/badge/R-276DC3?style=flat-badge&logo=R&logoColor=white">, <img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=Github&logoColor=white">
+    - 사용 툴: <img src="https://img.shields.io/badge/R-276DC3?style=flat-badge&logo=R&logoColor=white">, <img src="https://img.shields.io/badge/Github-181717?style=flat-badge&logo=Github&logoColor=white">
     - R을 이용한 데이터 가공 실습
