@@ -20,7 +20,7 @@
     - JQuery: 이벤트를 이용한 데이터 관리 시스템 구축 실습
 
 - Oracle
-    - 2022.11.29 ~ 2022.12.06
+    - 2022.11.29 ~ 2022.12.16
     - 사용 툴: <img src="https://img.shields.io/badge/Oracle-F80000?style=flat-badge&logo=oracle&logoColor=white">
     - MVC 구조 학습
     - DB와의 연동 및 데이터 CRUD 실습
