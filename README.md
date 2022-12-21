@@ -26,7 +26,7 @@
     - DB와의 연동 및 데이터 CRUD 실습
     - AJAX를 이용하여 회원가입/로그인과 연동 된 게시판 만들기 실습
 
-- R
+- R, Python
     - 2022.12.19 ~
-    - 사용 툴: <img src="https://img.shields.io/badge/R-276DC3?style=flat-badge&logo=R&logoColor=white">, <img src="https://img.shields.io/badge/Github-181717?style=flat-badge&logo=Github&logoColor=white">
+    - 사용 툴: <img src="https://img.shields.io/badge/R-276DC3?style=flat-badge&logo=R&logoColor=white">, <img src="https://img.shields.io/badge/Python-3776AB?style=flat-badge&logo=Python&logoColor=white">, <img src="https://img.shields.io/badge/Github-181717?style=flat-badge&logo=Github&logoColor=white">
     - R을 이용한 데이터 가공 실습
