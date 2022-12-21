@@ -7,8 +7,7 @@
 # 내용
 - JAVA
     - 2022.10.04 ~ 2022.11.03
-    - 사용 툴: Eclipse #2C2255
-    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
+    - 사용 툴: Eclipse <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white">
     - 자료형, 객체, 상속, 인터페이스, 예외처리 등 JAVA 기본 개념 학습
     - 추상 클래스와 인터페이스를 이용한 데이터 처리 실습
 
